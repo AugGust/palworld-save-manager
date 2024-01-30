@@ -27,3 +27,8 @@ Please follow the instructions provided over at https://github.com/xNul/palworld
 1. Download the latest release from [https://github.com/AugGust/palworld-save-manager/releases/latest].
 1. Unzip the file into a folder.
 1. Run `Palworld Save Manager.bat`
+
+#### Credits
+
+- https://github.com/xNul/palworld-host-save-fix
+- https://github.com/cheahjs/palworld-save-tools
