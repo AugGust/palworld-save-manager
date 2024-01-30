@@ -1,7 +1,5 @@
 import zlib
 
-MAGIC_BYTES = b"PlZ"
-
 
 def decompress_sav_to_gvas(data: bytes) -> tuple[bytes, int]:
     uncompressed_len = int.from_bytes(data[0:4], byteorder="little")
@@ -9,9 +7,9 @@ def decompress_sav_to_gvas(data: bytes) -> tuple[bytes, int]:
     magic_bytes = data[8:11]
     save_type = data[11]
     # Check for magic bytes
-    if magic_bytes != MAGIC_BYTES:
+    if magic_bytes != b"PlZ":
         raise Exception(
-            f"not a compressed Palworld save, found {magic_bytes} instead of {MAGIC_BYTES}"
+            f"not a compressed Palworld save, found {magic_bytes} instead of P1Z"
         )
     # Valid save types
     if save_type not in [0x30, 0x31, 0x32]:
@@ -49,7 +47,7 @@ def compress_gvas_to_sav(data: bytes, save_type: int) -> bytes:
     result = bytearray()
     result.extend(uncompressed_len.to_bytes(4, byteorder="little"))
     result.extend(compressed_len.to_bytes(4, byteorder="little"))
-    result.extend(MAGIC_BYTES)
+    result.extend(b"PlZ")
     result.extend(bytes([save_type]))
     result.extend(compressed_data)
 

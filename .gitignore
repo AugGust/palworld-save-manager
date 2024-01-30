@@ -1,8 +1,5 @@
-localtest
 .DS_Store
 *.code-workspace
 .vscode
-/target
-/rust
-/legacy
+config.ini
 __pycache__
