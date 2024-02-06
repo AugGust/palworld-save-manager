@@ -28,7 +28,7 @@ root.iconbitmap('icon.ico')
 #region [Setup Path]
 #world save
 world_frame = ttk.Frame(root)
-world_frame.pack(padx=10, pady=10, fill='x', expand=False)
+world_frame.pack(padx=10, pady=5, fill='x', expand=False)
 
 world_save_path = tk.StringVar()
 
@@ -81,7 +81,7 @@ headers = ['Device GUID', 'Device Name', 'Player Name']
 player_list = []
 
 browser_frame = ttk.Frame(root)
-browser_frame.pack(padx=10, pady= 10, fill='x', expand=False, side='top')
+browser_frame.pack(padx=10, pady= 5, fill='x', expand=False, side='top')
 
 browser_label = ttk.Label(browser_frame, text="Save Files")
 browser_label.pack(side='top', fill='x')
@@ -203,7 +203,7 @@ def entry_clicked(index: int):
 
 #region [Swapper]
 swapper_frame = ttk.Frame(root)
-swapper_frame.pack(padx=10, pady=10, fill='both', expand=True)
+swapper_frame.pack(padx=10, pady=5, fill='both', expand=True)
 
 # swapper_frame.columnconfigure(3, weight=1)
 swapper_frame.columnconfigure(4, weight=1)
@@ -321,11 +321,18 @@ replace_button.grid(row=3, column=2, sticky='w', pady=5)
 
 reset_button = ttk.Button(swapper_frame, text="Reset", command=reset_pressed)
 reset_button.grid(row=3, column=3, sticky='w', padx=5, pady=5)
+
+map_data_label = ttk.Label(swapper_frame, text="Map data is stored locally on device per player")
+map_data_label.grid(row=4, column=1, columnspan=5, sticky='w')
+
+map_loc_label = ttk.Label(swapper_frame, text="Transfer LocalData.sav manually to preserve map data")
+map_loc_label.grid(row=5, column=1, columnspan=5, sticky='w')
+
 #endregion
 
 #region [Metadata Editor]
 meta_editor_frame = ttk.Frame(root)
-meta_editor_frame.pack(padx=10, pady= 10, fill='both', expand=True)
+meta_editor_frame.pack(padx=10, pady= 5, fill='both', expand=True)
 
 meta_editor_frame.columnconfigure(1, weight=1)
 meta_editor_frame.columnconfigure(2, weight=1)
